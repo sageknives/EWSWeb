@@ -2,58 +2,79 @@
 <!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" ng-controller="AppController" class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" ng-controller="AppController" class="no-js "> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
-  <meta name="description" content="">
+  <meta name="theme-color" content="#000">
+  <title>Electric Wall Studios</title>
+  <meta name="description" content="Electric Wall Studios">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="bower_components/flexslider/flexslider.css">
+  <link rel="stylesheet" href="font-awesome-4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="app.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
   <script type="text/javascript">
   </script>
 </head>
-<body>
-
-  <div id="container" class="container {{menuState}}">
-
+<body class="{{menuState}} {{scrollState}}" ng-swipe-left="toggleMenu()" ng-swipe-right="toggleMenu('open')">
+<div class="background" >
+    </div>
+    
+  <div id="container" class="container  " >
+    <p class="location">Capitol Hill <span>.</span> Seattle, WA
+      <div class="circle"></div>
     <div class="header">
-      <div class="menu-button" ng-click="menuButton()">&#9776;</div>
-      <p class="title">Title</p>
+      <div class="menu-button" ng-click="menuButton()"><span>&#9776;</span></div>
+      <p class="title"><a href="#/home" ng-class="{'active':'/home'== active}" class="no-underline logo"><!--<img src="img/ewslogodesktop.jpg">--></a></p>
+
       <ul class="menu nav" ng-swipe-left="toggleMenu()">
-        <li class="nav-title">Title</li>
-        <li><a href="#/view1" ng-class="{'active':'/view1'== active}">View 1</a></li>
-        <li><a href="#/view2" ng-class="{'active':'/view2'== active}">View 2</a></li>
-        <li><a href="#/view1">view1</a></li>
-        <li><a href="#/view1">view1</a></li>
-        <li><a href="#/view1">view1</a></li>
-        <li><a href="#/view1">view1</a></li>
-        <li><a href="#/view1">view1</a></li>
-        <li><a href="#/view1">view1</a></li>
+        <li><a href="#/home" ng-class="{'active':'/home'== active}">Home</a></li>
+        <li><a href="#/studio" ng-class="{'active':'/studio'== active}">Studio</a></li>
+        <li><a href="#/clients" ng-class="{'active':'/clients'== active}">Clients</a></li>
+        <li><a href="#/gearlist" ng-class="{'active':'/gearlist'== active}">Gearlist</a></li>
+        <li><a href="#/photos" ng-class="{'active':'/photos'== active}">Photos</a></li>
+        <li><a href="#/contact" ng-class="{'active':'/contact'== active}">Contact</a></li>
       </ul>
     </div>
-
+<div class="loader-div {{spinnerState}}">
+      <img class="loader" ng-src="img/loader.gif">
+    </div>
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div >
-      <div class="content" ng-view ng-swipe-left="toggleMenu()" ng-swipe-right="toggleMenu('open')"></div>
-
-      <div>Angular seed app: v<span app-version></span></div>
-    </div>
+    
+      <div class="content {{scrollState}}" ng-view ></div>
+      <footerinfo></footerinfo>
+      <!--This is to know if device is online or not
+        <div class="error">{{online}}</div>
+      -->
   </div>
+
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/flexslider/jquery.flexslider.js"></script>
   <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-flexslider/angular-flexslider.js"></script>
   <script src="bower_components/angular-touch/angular-touch.js"></script>
+
   <script src="bower_components/angular-route/angular-route.js"></script>
+
   <script src="app.js"></script>
+  <script src="services/contentApi.js"></script>
+  <script src="directives.js"></script>
+  <script src="filters.js"></script>
   <script src="view1/view1.js"></script>
-  <script src="view2/view2.js"></script>
+  <script src="home/home.js"></script>
+  <script src="studio/studio.js"></script>
+  <script src="clients/clients.js"></script>
+  <script src="contact/contact.js"></script>
+  <script src="gearlist/gearlist.js"></script>
+  <script src="photos/photos.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>

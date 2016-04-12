@@ -1,0 +1,20 @@
+<h1 class="page-title centered">Photos</h1>
+<div ng-if="errorMessage">
+	<h3 class="error-message">{{errorMessage}}</h3>
+	<button ng-click="refresh()" class="refresh-button">Click to Retry</button>
+</div>
+<div class="photo-container">
+	<div ng-repeat="tile in photos" class="tile list-2-col">
+			<img class="non-mobile-photos" ng-click="openPhotobox($index)" ng-src="img/{{tile.link}}" alt="{{tile.title}}">
+			<!--<img class="mobile-photos" ng-src="img/{{tile.link}}" alt="{{tile.title}}">-->
+	</div>
+</div>
+<div class="photobox" ng-if="open">
+	<h3 class="photobox-title centered noselect photo-top-most"></h3>
+	<div class="close-button noselect photo-top-most" ng-click="close()"><i class="fa fa-times"></i></div>
+	<div ng-swipe-left="blockSlide($event,'left')" ng-swipe-right="blockSlide($event,'right')" class="photobox-image-container flex-direction-nav">
+		<a class="photobox-prev noselect flex-prev" ng-click="prev()">prev</a>
+		<img class="photobox-img noselect" ng-src="img/{{photoboxSrc}}">
+		<a class="photobox-next noselect flex-next" ng-click="next()">next</a>
+	</div>
+</div>

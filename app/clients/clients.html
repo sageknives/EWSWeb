@@ -1,0 +1,15 @@
+<h1 class="page-title centered">Clients</h1>
+<div ng-if="errorMessage">
+	<h3 class="error-message">{{errorMessage}}</h3>
+	<button ng-click="refresh()" class="refresh-button">Click to Retry</button>
+</div>
+<ul class="pic-info-2-col">
+	<li ng-repeat="client in content">
+  		
+  		<img ng-src="img/{{client.img}}" ng-if="client.img" class="list-img">
+  		<h4 class="picture-description">
+  			<a ng-if="client.link" href="{{client.link}}" target="_blank">{{client.name}}</a>
+  			<span ng-if="!client.link">{{client.name}}</span>
+  		</h4>
+	</li>
+</ul>

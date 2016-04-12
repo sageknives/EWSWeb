@@ -1,0 +1,11 @@
+<div ng-if="errorMessage">
+	<h3 class="error-message">{{errorMessage}}</h3>
+	<button ng-click="refresh()" class="refresh-button">Click to Retry</button>
+</div>
+<flex-slider ng-swipe-left="blockSlide($event,'left')" ng-swipe-right="blockSlide($event,'right')" slide="s in content.photos track by $index">
+	<li>
+		<img ng-src="img/{{s.link}}">
+	</li>
+</flex-slider>
+<h3 class="page-title centered">{{content.location}}</h3>
+<h3 class="centered"><a class="centered" href="mailto:{{content.email}}">{{content.email}}</a></h3>

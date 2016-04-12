@@ -1,0 +1,9 @@
+<h1 class="page-title centered">Contact</h1>
+<div ng-if="errorMessage">
+	<h3 class="error-message">{{errorMessage}}</h3>
+	<button ng-click="refresh()" class="refresh-button">Click to Retry</button>
+</div>
+<h3 class="centered">{{content.person}}</h3>
+<h3 class="centered">{{content.location}}</h3>
+<h3 class="centered"><a class="centered" href="mailto:{{content.email}}">{{content.email}}</a></h3>
+

@@ -1,0 +1,27 @@
+<h1 class="page-title centered">GearList</h1>
+<div ng-if="errorMessage">
+	<h3 class="error-message">{{errorMessage}}</h3>
+	<button ng-click="refresh()" class="refresh-button">Click to Retry</button>
+</div>
+<ul class="list-1-col">
+	<li>
+  		<h4>{{content.main.title}}</h4>
+  		<img ng-if="content.main.img" class="list-img" ng-src="img/{{content.main.img}}">
+		<div ng-repeat="item in content.main.items">
+			<img ng-if="item.img" class="list-img" ng-src="img/{{item.img}}">
+			<p>{{item.name}}</p>
+		</div>
+
+	</li>
+</ul>
+<ul class="list-1-col">
+	<li ng-repeat="g in content.gear">
+  		<h4>{{g.title}}</h4>
+  		<img ng-if="g.img" class="list-img" ng-src="img/{{g.img}}">
+		<div ng-repeat="item in g.items">
+			<img ng-if="item.img" class="list-img" ng-src="img/{{item.img}}">
+			<p>{{item.name}}</p>
+		</div>
+
+	</li>
+</ul>

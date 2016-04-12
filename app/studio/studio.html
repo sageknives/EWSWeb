@@ -1,0 +1,13 @@
+
+<h1 class="page-title centered">Studio</h1>
+<div ng-if="errorMessage">
+	<h3 class="error-message">{{errorMessage}}</h3>
+	<button ng-click="refresh()" class="refresh-button">Click to Retry</button>
+</div><ul class="pic-info-2-col">
+	<li ng-repeat="room in content.rooms">
+  		<img ng-if="room.img" class="list-img studio-img" ng-src="img/{{room.img}}">
+  		<h4>{{room.title}}</h4>
+  		<span>{{room.size}}</span>
+  		<p>{{room.description}}</p>
+	</li>
+</ul>
